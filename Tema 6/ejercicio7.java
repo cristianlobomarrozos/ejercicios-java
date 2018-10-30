@@ -3,38 +3,33 @@ public class ejercicio7{
     int numero;
     String letra = "";
     int equipo = 0;
-    int equipo1 = 1;
-    
-    
-    
+    int equipo1 = 30;
     
     for(int i=0; i<14; i++){
       numero = (int)(Math.random()*3);
-      switch(numero){ 
-      case 0:
-        numero = 1;
-      break;
-      case 1:
-        letra = String.valueOf(numero);
-        letra = "x";
-      break;
-      case 2:
-        numero = 2;
-      break;
-      }
-      equipo1 = equipo1 + equipo;
       if((numero == 1) || (numero == 2)){
-        
+          switch(numero){ 
+          case 0:
+            numero = 1;
+          break;
+          case 2:
+            numero = 2;
+          break;
+          }
         System.out.print("Equipo " + equipo);
         System.out.print(" contra ");
         System.out.print("Equipo " + equipo1);
         System.out.println(" = " +numero);
+        equipo1 = equipo1 + equipo;
       }else{
+        letra = String.valueOf(numero);
+        letra = "X";
         System.out.print("Equipo " + equipo);
         System.out.print(" contra ");
         System.out.print("Equipo " + equipo1);
         System.out.println(" = " +letra);
       }
+      equipo1--;
       equipo++;
     
     }
