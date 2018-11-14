@@ -8,6 +8,10 @@ public class ejercicio12{
       System.out.print("Indique valor de posición " + (i+1) + ": ");
       vector[i] = Integer.parseInt(System.console().readLine());
     }
+    for(int i=0; i<10; i++){
+      System.out.println(vector[i]);
+    }
+    System.out.println();
   
   }
 
