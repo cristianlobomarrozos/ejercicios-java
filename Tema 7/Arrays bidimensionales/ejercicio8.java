@@ -101,6 +101,7 @@ public class ejercicio8{
       System.out.print(caracter + fila + " ");
     }while((fila!=1) || (columna!=1));
     
+    
 
   }
 }
