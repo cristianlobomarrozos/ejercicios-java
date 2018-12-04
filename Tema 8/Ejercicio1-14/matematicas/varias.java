@@ -2,7 +2,10 @@ package matematicas;
 
 public class varias{
   public static boolean esCapicua(int x){
-    
+    if(x == (voltea(x))){
+      return true;
+    }
+    return false;
   }
   
   public static boolean esPrimo(long x){
