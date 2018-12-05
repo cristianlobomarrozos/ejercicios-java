@@ -95,7 +95,7 @@ public class varias{
         }
       }
     }
-    return 0;
+    
   }
   
   public static int quitarPorDetras(int x){
