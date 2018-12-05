@@ -32,7 +32,7 @@ public class varias{
     }
     int z = 1;
     
-    for(int i=0; i<x; i++){
+    for(int i=0; i<y; i++){
       z = z*x;
     }
     return z;
@@ -62,17 +62,79 @@ public class varias{
   }
   
   public static int digitoN(int x, int y){
-    int posicion = 1;
-    for(int i=0; i<y; i++){
-      posicion = posicion * 10;
+    x = voltea(x);
+    while(y-->0){
+      x = x/10;
+      
     }
-    int digito;
-    digito = x%posicion;
-    
-    return digito;
+    return x % 10;
   }
   
-  public static int posicionDeDigito(){
+  public static int posicionDeDigito(int x){
+    int y;
+    System.out.print("Introduzca el número que desea encontrar: ");
+    y = Integer.parseInt(System.console().readLine());
+    int posicion = 0;
     
+    if(x==0){
+      return -1;
+    }else {
+      while(x>0){
+        x = x/10;
+        posicion++;
+      }
+      for(int i=0; i<posicion; i++){
+        int aux = 1;
+        aux = aux * 10;
+        x = x%aux;
+        
+        if(x==y){
+          return x;
+        }else{
+          return -1;
+        }
+      }
+    }
+    return 0;
+  }
+  
+  public static int quitarPorDetras(int x){
+    int quitar;
+    System.out.print("Introduzca el número de dígitos que quiere quitar por la derecha: ");
+    quitar = Integer.parseInt(System.console().readLine());
+    
+    int resultado;
+    int aux = 1;
+    
+    for(int i=0; i<quitar; i++){
+      aux = aux * 10;
+      resultado = x / aux;
+      x = resultado;
+      
+    }
+    
+    
+    return x;
+    
+  }
+  
+  public static int quitarPorDelante(int x){
+    int quitar;
+    System.out.print("Introduzca el número de dígitos que quiere quitar por la izquierda: ");
+    quitar = Integer.parseInt(System.console().readLine());
+    
+    int contador = 0;
+    while(x>0){
+      x = x/10;
+      contador++;
+    }
+    
+    int aux = 1;
+    int resultado = 0;
+    for(int i=0; i<quitar; i++){
+      aux = aux * 10;
+      resultado = x%aux;
+    }
+    return resultado;
   }
 }
