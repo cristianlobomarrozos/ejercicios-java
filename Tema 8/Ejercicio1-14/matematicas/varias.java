@@ -123,18 +123,14 @@ public class varias{
     System.out.print("Introduzca el número de dígitos que quiere quitar por la izquierda: ");
     quitar = Integer.parseInt(System.console().readLine());
     
-    int contador = 0;
+    int resultado = 0;
     while(x>0){
-      x = x/10;
-      contador++;
+      for(int i=0; i<quitar; i++){
+        resultado = x%10 + (resultado*10);
+      }
+      x /= 10;
     }
     
-    int aux = 1;
-    int resultado = 0;
-    for(int i=0; i<quitar; i++){
-      aux = aux * 10;
-      resultado = x%aux;
-    }
     return resultado;
   }
 }

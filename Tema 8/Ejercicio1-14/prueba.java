@@ -6,9 +6,9 @@ public class prueba{
     int posi = 1;
     
     
-    System.out.print(varias.posicionDeDigito(resul));
+    System.out.print(varias.quitarPorDelante(resul));
     
-    
+    //System.out.print(1214%10);
     
   }
 }
