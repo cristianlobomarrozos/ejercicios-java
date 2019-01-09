@@ -5,7 +5,7 @@ public class Ejercicio4 {
     int tama;
     int pos;
     String pal;
-    int minimo = 10;
+    int minimo = 0;
     
     Scanner s = new Scanner(System.in);
     
@@ -22,18 +22,16 @@ public class Ejercicio4 {
       
       System.out.print("Introduzca el número desde 0 hasta " + (tama-1) + "de la posición " + i + ": ");
       pos = Integer.parseInt(System.console().readLine());
-      if (pos < minimo) {
-        minimo = pos;
-      }
+      
     }
     System.out.println();
     
     for (int i=0; i<tama; i++) {
+      
       if (posicion[i] == minimo) {
         System.out.print(palabras[i] + ", ");
-        minimo++;
       }
-      
+      minimo++;
     }
   }
 }
