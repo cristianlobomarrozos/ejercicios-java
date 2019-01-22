@@ -49,7 +49,11 @@ public class ejercicio3 {
     double descuento = 0; 
     switch (codigo) {
       case 685:
-        descuento = 15;
+        if (precio*numUnidades >= 15) {
+          descuento = 15;
+        } else {
+          descuento = precio*numUnidades;
+        }
       break;
       case 778:
         if (numUnidades <= 20) {
