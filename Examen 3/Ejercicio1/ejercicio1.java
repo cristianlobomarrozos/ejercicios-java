@@ -9,8 +9,10 @@ public class ejercicio1 {
     boolean colocados = false;
     boolean sePuede = false;
     
-    System.out.print("Introduzca el número de discos con los que desea jugar(entre 2-10): ");
-    numDiscos = Integer.parseInt(System.console().readLine());
+    do {
+      System.out.print("Introduzca el número de discos con los que desea jugar(entre 2-10): ");
+      numDiscos = Integer.parseInt(System.console().readLine());
+    } while ((numDiscos < 2) || (numDiscos > 10));
     
     postes = inicializaPostes(numDiscos);
     accesorioHanoi.muestraTorres(postes);
