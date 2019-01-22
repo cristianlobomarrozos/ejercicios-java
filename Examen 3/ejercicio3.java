@@ -30,15 +30,15 @@ public class ejercicio3 {
     System.out.println("A continuación, se le muestra el precio desglosado del pedido: ");
       
     System.out.println("----------------------------------------------------");
-    System.out.printf("Precio del artículo:             %.2f €\n", precio);
-    System.out.printf("Precio nº unidades:             %2d\n",numUnidades);
-    System.out.printf("Precio total unidades:           %.2f €\n",(precio * numUnidades));
-    System.out.printf("Descuento aplicado: Código:%3d   %.2f €\n",codigo,descuento);
-    System.out.printf("Precio con descuento:            %.2f €\n",precioDescuento);
+    System.out.printf("Precio del artículo:             %4.2f €\n", precio);
+    System.out.printf("Precio nº unidades:              %2d\n",numUnidades);
+    System.out.printf("Precio total unidades:           %4.2f €\n",(precio * numUnidades));
+    System.out.printf("Descuento aplicado: Código:%3d   %4.2f €\n",codigo,descuento);
+    System.out.printf("Precio con descuento:            %4.2f €\n",precioDescuento);
     System.out.print("IVA(21%): ");
-    System.out.printf("                       %.2f €\n", precioIVA);
+    System.out.printf("                       %4.2f €\n", precioIVA);
     System.out.println("----------------------------------------------------");
-    System.out.printf("Precio final:                    %.2f €\n",precioTotal);   
+    System.out.printf("Precio final:                    %4.2f €\n",precioTotal);   
     
   }
   
