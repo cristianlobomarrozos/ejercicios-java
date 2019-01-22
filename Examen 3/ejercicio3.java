@@ -26,7 +26,8 @@ public class ejercicio3 {
       
     precioIVA = CalcularIVA(precioDescuento);
     double precioTotal = PrecioTotal(precioIVA,precioDescuento);
-      
+    
+    System.out.println("A continuación, se le muestra el precio desglosado del pedido: ");
       
     System.out.println("----------------------------------------------------");
     System.out.printf("Precio del artículo:             %.2f €\n", precio);
