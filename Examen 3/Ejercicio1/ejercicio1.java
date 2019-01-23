@@ -1,4 +1,4 @@
-import libreriaHanoi.*;
+//import libreriaHanoi.*;
 
 public class ejercicio1 {
   public static void main(String[] args){
@@ -15,7 +15,8 @@ public class ejercicio1 {
     
     postes = inicializaPostes(numDiscos);
     
-    libreriaHanoi.accesorioHanoi.muestraTorres(postes);
+    //libreriaHanoi.accesorioHanoi.muestraTorres(postes);
+    muestraTorres(postes);
     
     boolean quiereSalir = false;
     
@@ -33,7 +34,9 @@ public class ejercicio1 {
           System.out.println("No se ha podido realizar el movimiento.");
           }
       
-          libreriaHanoi.accesorioHanoi.muestraTorres(postes); 
+          //libreriaHanoi.accesorioHanoi.muestraTorres(postes);
+          muestraTorres(postes);
+           
         } else {
           quiereSalir = true;
         }
@@ -98,5 +101,44 @@ public class ejercicio1 {
     }
     
     return colocados;
+  }
+  
+  public static void muestraTorres (int[][] matriz) {
+    int numDiscos = matriz[0].length-1;
+    
+    for (int i=0; i<numDiscos; i++) {
+      //repetir para cada capa de varilla
+      for (int j=0; j<3; j++) {
+        //pintar espacios en blanco
+        for (int k=0; k<numDiscos-matriz[j][numDiscos-i]; k++) {
+          System.out.print(" ");
+        }
+        
+        //pintar primera parte disco
+        for (int k=0; k<matriz[j][numDiscos-i]; k++) {
+          System.out.print("=");
+        }
+        
+        //pintar varilla
+        if (matriz[j][numDiscos-i] == 0) {
+          System.out.print("|");
+        } else {
+          System.out.print("=");
+        }
+        
+        //pintar segunda parte disco
+        for (int k=0; k<matriz[j][numDiscos-i]; k++) {
+          System.out.print("=");
+        }
+        
+        //pintar espacios en blanco
+        for (int k=0; k<numDiscos-matriz[j][numDiscos-i]; k++) {
+          System.out.print(" ");
+        }
+      }
+      
+      System.out.println();
+      
+    }
   }
 }
