@@ -1,4 +1,4 @@
-import libreriaHanoi.accesorioHanoi;
+import libreriaHanoi.*;
 
 public class ejercicio1 {
   public static void main(String[] args){
@@ -6,8 +6,7 @@ public class ejercicio1 {
     int[][] postes;
     int ini;
     int fin;
-    boolean colocados = false;
-    boolean sePuede = false;
+ 
     
     do {
       System.out.print("Introduzca el número de discos con los que desea jugar(entre 2-10): ");
@@ -15,59 +14,89 @@ public class ejercicio1 {
     } while ((numDiscos < 2) || (numDiscos > 10));
     
     postes = inicializaPostes(numDiscos);
-    accesorioHanoi.muestraTorres(postes);
     
-    do {
+    libreriaHanoi.accesorioHanoi.muestraTorres(postes);
+    
+    boolean quiereSalir = false;
+    
+    while ((!(checkHanoi(postes))) && (!(quiereSalir))) {
       
-      System.out.print("Introduzca el poste desde el que desea realizar el movimiento: ");
+      System.out.print("Introduzca desde qué poste quiere mover disco: ");
       ini = Integer.parseInt(System.console().readLine());
       
-      System.out.print("Introduzca el poste al que desea realizar el movimiento: ");
-      fin = Integer.parseInt(System.console().readLine());
+      if (ini != -1) {
+        System.out.print("Introduzca a qué poste quiere mover disco: ");
+        fin = Integer.parseInt(System.console().readLine());
+        
+        if (fin != -1) {
+         if (!(intentaMover(postes,ini,fin))) {
+          System.out.println("No se ha podido realizar el movimiento.");
+          }
       
-      intentaMover(postes, ini, fin);
-      accesorioHanoi.muestraTorres(postes);
-      colocados = checkHanoi(postes, numDiscos);
-      
-      
-    } while ((!colocados) || (ini != -1) || (fin != -1));
+          libreriaHanoi.accesorioHanoi.muestraTorres(postes); 
+        } else {
+          quiereSalir = true;
+        }
+        
+      } else {
+        quiereSalir = true;
+      }
+    }
+    
   }
   
   public static int[][] inicializaPostes (int numDiscos) {
     int[][] postes = new int[3][numDiscos+1];
     
-    for (int i=0; i<3; i++) {
-      for (int j=0; j<(numDiscos+1); j++) {
+    postes[0][0] = numDiscos;
+    for (int i=1; i<=numDiscos; i++) {
+      postes[0][i] = numDiscos-i+1;
+    }
+    for (int i=1; i<3; i++) {
+      for (int j=0; j<=numDiscos; j++) {
         postes[i][j] = 0;
       }
-    }
-    
-    postes[0][0] = numDiscos;
-    
-    for (int i=1; i<(numDiscos+1); i++) {
-      postes[0][i] = numDiscos;
-      numDiscos--;
     }
     
     return postes;
   }
   
-  public static boolean intentaMover (int[][] postes, int ini, int fin) {
+  public static boolean intentaMover (int[][] postes, int origen, int destino) {
+    boolean seHaPodido = false;
     
+    if ((origen >= 1 && origen <= 3) && (destino >= 1 && destino <= 3)) {
+      
+      if (postes[origen-1][0] > 0) {
+        if (postes[destino-1][0] == 0) {
+          postes[destino-1][0]++;
+          postes[destino-1][postes[destino-1][0]] = postes[origen-1][postes[origen-1][0]];
+          postes[origen-1][postes[origen-1][0]] = 0;
+          postes[origen-1][0]--;
+          seHaPodido = true;
+        } else {
+          if (postes[origen-1][postes[origen-1][0]] < postes[destino-1][postes[destino-1][0]]) {
+            postes[destino-1][0]++;
+            postes[destino-1][postes[destino-1][0]] = postes[origen-1][postes[origen-1][0]];
+            postes[origen-1][postes[origen-1][0]] = 0;
+            postes[origen-1][0]--;
+            seHaPodido = true;
+          }
+        }
+      }
+      
+    }
+    
+    return seHaPodido;
   }
   
   
-  public static boolean checkHanoi (int[][] postes, int numDiscos) {
+  public static boolean checkHanoi (int[][] postes) {
     boolean colocados = false;
     
-    for (int i=0; i<postes[2].length; i++) {
-      if (i == numDiscos) {
-        colocados = true;
-      } else {
-        colocados = false;
-      }
-      numDiscos--;
+    if (postes[2][0] == (postes[2].length-1)) {
+      colocados = true;
     }
+    
     return colocados;
   }
 }
