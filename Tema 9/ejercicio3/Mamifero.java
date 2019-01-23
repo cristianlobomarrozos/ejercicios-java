@@ -1,5 +1,6 @@
 public class Mamifero extends Animal {
   private int tiempoGestacion;
+
   
   public Mamifero (int tiempoGest) {
     this.tiempoGestacion = tiempoGest;
