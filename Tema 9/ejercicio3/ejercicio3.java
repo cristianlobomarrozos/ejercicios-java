@@ -3,7 +3,7 @@ public class ejercicio3 {
     
     Mamifero prueba = new Mamifero(35);
     
-    prueba.setEdad(15);
+    prueba.setEdad(150);
     
     System.out.println(prueba);
     
