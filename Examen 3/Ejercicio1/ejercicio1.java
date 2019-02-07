@@ -65,7 +65,7 @@ public class ejercicio1 {
   }
   
   public static boolean intentaMover (int[][] postes, int origen, int destino) {
-    boolean seHaPodido = false;
+    boolean sePuede = false;
     
     if ((origen >= 1 && origen <= 3) && (destino >= 1 && destino <= 3)) {
       
@@ -75,21 +75,21 @@ public class ejercicio1 {
           postes[destino-1][postes[destino-1][0]] = postes[origen-1][postes[origen-1][0]];
           postes[origen-1][postes[origen-1][0]] = 0;
           postes[origen-1][0]--;
-          seHaPodido = true;
+          sePuede = true;
         } else {
           if (postes[origen-1][postes[origen-1][0]] < postes[destino-1][postes[destino-1][0]]) {
             postes[destino-1][0]++;
             postes[destino-1][postes[destino-1][0]] = postes[origen-1][postes[origen-1][0]];
             postes[origen-1][postes[origen-1][0]] = 0;
             postes[origen-1][0]--;
-            seHaPodido = true;
+            sePuede = true;
           }
         }
       }
       
     }
     
-    return seHaPodido;
+    return sePuede;
   }
   
   
