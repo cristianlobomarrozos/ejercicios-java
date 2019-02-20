@@ -29,9 +29,11 @@ public class DetectarDigito {
         aux1 = aux;
         aux1 = aux1%10;
         
-        if (aux1 == digito) {
+       /* if (aux1 == digito) {
           esta = true;
-        }
+        }*/
+        
+        esta = detectarDigito(aux1, digito);
         
         aux = aux/10;
       }
@@ -41,5 +43,21 @@ public class DetectarDigito {
       }
       esta = false;
     }
+  }
+  
+  public static boolean detectarDigito (int numero, int digito) {
+    boolean resultado = false;
+    
+    while (numero > 0) {
+      int aux = numero%10;
+      
+      if (aux == digito) {
+        resultado = true;
+      }
+      
+      numero /= 10;
+    }
+    
+    return resultado;
   }
 }

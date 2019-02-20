@@ -42,4 +42,20 @@ public class Ejercicio4 {
       minimo++;
     }
   }
+  
+  public static boolean detectarDigito (int numero, int digito) {
+    boolean resultado = false;
+    int aux = numero;
+    
+    while (aux > 0) {
+      int aux1 = aux%10;
+      
+      if (aux1 == digito) {
+        resultado = true;
+      }
+      aux /= 10;
+    }
+    
+    return resultado;
+  }
 }
